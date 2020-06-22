@@ -1,4 +1,4 @@
-This library is an extension of the Commonmark library from the PHP League that adds abbreviation syntax and rendering to Markdown.
+This library is an extension of the [Commonmark parser](https://github.com/thephpleague/commonmark) from the PHP League that adds abbreviation syntax and rendering to Markdown.
 
 This text is written using the syntax to be used to test the validity of the extension; therefore, it will most likely not render as intended.
 
