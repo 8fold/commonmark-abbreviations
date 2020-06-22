@@ -1,0 +1,30 @@
+{
+  "name": "8fold/commonmark-abbreviations",
+  "description": "An extension of PHP League's Commonmark library to enable abbreviation usage.",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Josh Bruce",
+      "email": "josh@8fold.pro"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "league/commonmark": "1.5.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "8.0.*",
+    "8fold/php-shoop-extras": "0.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Eightfold\\CommonmarkAbbreviations\\": "./src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Eightfold\\CommonmarkAbbreviations\\Tests\\": "./tests/"
+    }
+  }
+}
