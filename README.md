@@ -1,16 +1,20 @@
+# 8fold Abbreviations for Commonmark
+
 This library is an extension of the [Commonmark parser](https://github.com/thephpleague/commonmark) from the PHP League that adds abbreviation syntax and rendering to Markdown.
 
 This text is written using the syntax to be used to test the validity of the extension; therefore, it will most likely not render as intended.
 
 ## The syntax
 
-The syntax originated from seeing a [conversation on the Commonmark site](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) and other implementations.
+Similar to the link format: \[](). Only preceded by a tilde and one empty space: ~\[]()
+
+The syntax is inspired by a [conversation on the Commonmark site](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) and other implementations.
 
 When it came to deciding between find-and-replace (or replace all) versus inline - inline was selected.
 
-Inline gives the author more fine-grain control over what becomes an ~[abbr](abbreviation) and what doesn't. This also reduces complexity for the implementation and solves the concern of only defining first use as [recommended by the ~[US](United States) Plain Language Guidelines](https://plainlanguage.gov/resources/articles/keep-it-jargon-free/) and similar guides.
+Inline gives the author more fine-grain control over what becomes an ~[abbr](abbreviation) and what doesn't. This also reduces complexity for the implementation and solves the concern of only defining first use as recommended by [the ~[US](United States) Plain Language Guidelines](https://plainlanguage.gov/resources/articles/keep-it-jargon-free/) and similar guides.
 
-The consensus in the discussion seemed to fall on using the link syntax: [](). Which is also used with an exclamation mark prefix for images: ![](). It is also similar to the syntax used for footnotes: [^]:. Essentially, in cases where two subparts are to be combined, one subpart is wrapped in square brackets while the second subpart is wrapped in ~[parens](parentheses) or otherwise separated from the square brackets.
+The consensus in the discussion seemed to fall on using the link syntax: \[](). Which is also used with an exclamation mark prefix for images: \!\[](). It is also similar to the syntax used for footnotes: [^]:. Essentially, in cases where two subparts are to be combined, one subpart is wrapped in square brackets while the second subpart is wrapped in ~[parens](parentheses) or otherwise separated from the square brackets.
 
 Given the common usage of the ~[abbr](abbreviation) ~[HTML](Hypertext Markup Language) element, the link syntax makes sense. With that said, there didn't seem to be a consensus around the starting glyph. Common implementations seem to use the asterisk; however, this doesn't seem like the best choice, for reasons also brought up in the discussion thread. Beyond those, I will only add that the asterisk, used in this context, doesn't seem to be natural or communicative device - more one of convenience - consider the caret used for the footnote.
 
