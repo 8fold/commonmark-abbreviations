@@ -1,5 +1,7 @@
 # 8fold Abbreviations for CommonMark
 
+Note: Working with the [CommonMark team](https://github.com/thephpleague/commonmark) on the desired pattern of `.[]()`. The text presumes that pattern; however, the examples use a pattern that was found to work. If we find this pattern to work better, the surrounding text will be updated.
+
 This library is an extension for the [CommonMark parser](https://github.com/thephpleague/commonmark) from the PHP League adding abbreviation syntax and rendering to Markdown.
 
 This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.
