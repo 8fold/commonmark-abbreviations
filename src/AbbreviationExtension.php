@@ -1,13 +1,13 @@
 <?php
 
-namespace Eightfold\CommonmarkAbbreviations;
+namespace Eightfold\CommonMarkAbbreviations;
 
 use League\CommonMark\Extension\ExtensionInterface;
 use League\CommonMark\ConfigurableEnvironmentInterface;
 
-use Eightfold\CommonmarkAbbreviations\Abbreviation;
-use Eightfold\CommonmarkAbbreviations\AbbreviationRenderer;
-use Eightfold\CommonmarkAbbreviations\AbbreviationInlineParser;
+use Eightfold\CommonMarkAbbreviations\Abbreviation;
+use Eightfold\CommonMarkAbbreviations\AbbreviationRenderer;
+use Eightfold\CommonMarkAbbreviations\AbbreviationInlineParser;
 
 class AbbreviationExtension implements ExtensionInterface
 {

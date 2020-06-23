@@ -1,9 +1,9 @@
-<h1>8fold Abbreviations for Commonmark</h1>
-<p>This library is an extension of the <a href="https://github.com/thephpleague/commonmark">Commonmark parser</a> from the PHP League that adds abbreviation syntax and rendering to Markdown.</p>
+<h1>8fold Abbreviations for CommonMark</h1>
+<p>This library is an extension of the <a href="https://github.com/thephpleague/commonmark">CommonMark parser</a> from the PHP League that adds abbreviation syntax and rendering to Markdown.</p>
 <p>This text is written using the syntax to be used to test the validity of the extension; therefore, it will most likely not render as intended.</p>
 <h2>The syntax</h2>
 <p>Similar to the link format: [](). Only preceded by a tilde and one empty space: ~[]()</p>
-<p>The syntax is inspired by a <a href="https://talk.commonmark.org/t/abbreviations-and-acronyms/890">conversation on the Commonmark site</a> and other implementations.</p>
+<p>The syntax is inspired by a <a href="https://talk.commonmark.org/t/abbreviations-and-acronyms/890">conversation on the CommonMark site</a> and other implementations.</p>
 <p>When it came to deciding between find-and-replace (or replace all) versus inline - inline was selected.</p>
 <p>Inline gives the author more fine-grain control over what becomes an <abbr title="abbreviation">abbr</abbr> and what doesn't. This also reduces complexity for the implementation and solves the concern of only defining first use as recommended by <a href="https://plainlanguage.gov/resources/articles/keep-it-jargon-free/">the <abbr title="United States">US</abbr> Plain Language Guidelines</a> and similar guides.</p>
 <p>The consensus in the discussion seemed to fall on using the link syntax: [](). Which is also used with an exclamation mark prefix for images: ![](). It is also similar to the syntax used for footnotes: [^]:. Essentially, in cases where two subparts are to be combined, one subpart is wrapped in square brackets while the second subpart is wrapped in <abbr title="parentheses">parens</abbr> or otherwise separated from the square brackets.</p>

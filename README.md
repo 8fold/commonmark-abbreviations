@@ -1,6 +1,6 @@
-# 8fold Abbreviations for Commonmark
+# 8fold Abbreviations for CommonMark
 
-This library is an extension of the [Commonmark parser](https://github.com/thephpleague/commonmark) from the PHP League that adds abbreviation syntax and rendering to Markdown.
+This library is an extension of the [CommonMark parser](https://github.com/thephpleague/commonmark) from the PHP League that adds abbreviation syntax and rendering to Markdown.
 
 This text is written using the syntax to be used to test the validity of the extension; therefore, it will most likely not render as intended.
 
@@ -8,7 +8,7 @@ This text is written using the syntax to be used to test the validity of the ext
 
 Similar to the link format: \[](). Only preceded by a tilde and one empty space: ~\[]()
 
-The syntax is inspired by a [conversation on the Commonmark site](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) and other implementations.
+The syntax is inspired by a [conversation on the CommonMark site](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) and other implementations.
 
 When it came to deciding between find-and-replace (or replace all) versus inline - inline was selected.
 

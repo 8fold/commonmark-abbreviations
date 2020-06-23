@@ -1,13 +1,13 @@
 <?php
 
-namespace Eightfold\CommonmarkAbbreviations;
+namespace Eightfold\CommonMarkAbbreviations;
 
 use Eightfold\Shoop\Shoop;
 
 use League\CommonMark\Inline\Parser\InlineParserInterface;
 use League\CommonMark\InlineParserContext;
 
-use Eightfold\CommonmarkAbbreviations\Abbreviation;
+use Eightfold\CommonMarkAbbreviations\Abbreviation;
 
 class AbbreviationInlineParser implements InlineParserInterface
 {

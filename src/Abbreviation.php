@@ -1,6 +1,6 @@
 <?php
 
-namespace Eightfold\CommonmarkAbbreviations;
+namespace Eightfold\CommonMarkAbbreviations;
 
 use League\CommonMark\Inline\Element\AbstractInline;
 

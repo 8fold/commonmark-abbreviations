@@ -110,21 +110,21 @@
         },
         {
             "name": "8fold/php-shoop-extras",
-            "version": "0.1.0",
+            "version": "0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/8fold/php-shoop-extras.git",
-                "reference": "4b37704dde61f38d08aec2305aff196d83316828"
+                "reference": "8a4c9740dd6bb0feffb5aba47477284e6d76cd84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/8fold/php-shoop-extras/zipball/4b37704dde61f38d08aec2305aff196d83316828",
-                "reference": "4b37704dde61f38d08aec2305aff196d83316828",
+                "url": "https://api.github.com/repos/8fold/php-shoop-extras/zipball/8a4c9740dd6bb0feffb5aba47477284e6d76cd84",
+                "reference": "8a4c9740dd6bb0feffb5aba47477284e6d76cd84",
                 "shasum": ""
             },
             "require": {
-                "8fold/php-markup": "0.1.*",
                 "8fold/php-shoop": "0.4.*",
+                "league/commonmark": "1.5.*",
                 "php": "7.*",
                 "spatie/yaml-front-matter": "2.0.*"
             },
@@ -159,7 +159,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-16T22:12:51+00:00"
+            "time": "2020-06-23T04:38:36+00:00"
         },
         {
             "name": "league/commonmark",

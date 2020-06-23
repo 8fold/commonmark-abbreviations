@@ -1,6 +1,6 @@
 {
   "name": "8fold/commonmark-abbreviations",
-  "description": "An extension of PHP League's Commonmark library to enable abbreviation usage.",
+  "description": "An extension of PHP League's CommonMark library to enable abbreviation usage.",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -20,12 +20,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Eightfold\\CommonmarkAbbreviations\\": "./src/"
+      "Eightfold\\CommonMarkAbbreviations\\": "./src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Eightfold\\CommonmarkAbbreviations\\Tests\\": "./tests/"
+      "Eightfold\\CommonMarkAbbreviations\\Tests\\": "./tests/"
     }
   },
   "config": {
