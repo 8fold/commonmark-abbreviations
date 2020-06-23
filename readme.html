@@ -1,10 +1,9 @@
 <h1>8fold Abbreviations for CommonMark</h1>
-<p>Note: Working with the <a href="https://github.com/thephpleague/commonmark">CommonMark team</a> on the desired pattern of <code>.[]()</code>. The text presumes that pattern; however, the examples use a pattern that was found to work. If we find this pattern to work better, the surrounding text will be updated.</p>
 <p>This library is an extension for the <a href="https://github.com/thephpleague/commonmark">CommonMark parser</a> from the PHP League adding abbreviation syntax and rendering to Markdown.</p>
 <p>This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.</p>
 <h2>The syntax</h2>
 <p>Inspired by the link syntax - <code>[]()</code> - and the footnote syntax in the extension from MultiMarkdown - <code>[^]</code>.</p>
-<p>The syntax is a square bracket followed by a period or dot: <code>.[]()</code>.</p>
+<p>The syntax is a square bracket followed by a period or dot: <code>[.]()</code>.</p>
 <p>Just like the footnote indcates superscript, the abbreviation syntax was found to indicate shortening to more people than previously proposed options. Placing the dot inside the opening square bracket allows the abbreviation to exist next to other glyphs as opposed to forcing empty space. (A conversation in the <a href="https://talk.commonmark.org/t/abbreviations-and-acronyms/890">CommonMark <abbr title="Specification">Spec</abbr> board</a> was also referenced, and informative)</p>
 <p>Given the traditional use of the <code>abbr</code> tag commonly combined with the <code>title</code> attribute, the link syntax makes sense as the <code>a</code> tag combines inner text with <code>href</code> and the <code>img</code> tag uses two attributes, <code>src</code> and <code>alt</code> to be valid and accessible.</p>
 <h2>Replace-all <abbr title="versus">vs.</abbr> inline</h2>

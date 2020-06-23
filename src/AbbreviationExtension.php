@@ -13,7 +13,7 @@ class AbbreviationExtension implements ExtensionInterface
 {
     public function register(ConfigurableEnvironmentInterface $environment)
     {
-        $environment->addInlineParser(new AbbreviationInlineParser());
+        $environment->addInlineParser(new AbbreviationInlineParser(), 100);
         $environment->addInlineRenderer(Abbreviation::class, new AbbreviationRenderer());
     }
 }

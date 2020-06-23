@@ -13,21 +13,20 @@ class AbbreviationInlineParser implements InlineParserInterface
 {
     public function getCharacters(): array
     {
-        return ["."];
+        return ["["];
     }
 
     public function parse(InlineParserContext $inlineContext): bool
     {
         $cursor = $inlineContext->getCursor();
-
         $nextChar = $cursor->peek();
-        if ($nextChar !== null and $nextChar !== "[") {
+        if ($nextChar !== null and $nextChar !== ".") {
             return false;
         }
 
         $previousCursor = $cursor->saveState();
 
-        $regex = '/^\.\[.+?\]\(.+?\)/';
+        $regex = '/^\[\..+?\]\(.+?\)/';
         $abbr = $cursor->match($regex);
 
         if (empty($abbr)) {

@@ -1,1 +1,1 @@
-.[USWDS](United States Web Design System)
+[.USWDS](United States Web Design System)
