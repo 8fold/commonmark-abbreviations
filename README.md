@@ -1,25 +1,33 @@
 # 8fold Abbreviations for CommonMark
 
-This library is an extension of the [CommonMark parser](https://github.com/thephpleague/commonmark) from the PHP League that adds abbreviation syntax and rendering to Markdown.
+This library is an extension for the [CommonMark parser](https://github.com/thephpleague/commonmark) from the PHP League adding abbreviation syntax and rendering to Markdown.
 
-This text is written using the syntax to be used to test the validity of the extension; therefore, it will most likely not render as intended.
+This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.
 
 ## The syntax
 
-Similar to the link format: \[](). Only preceded by a tilde and one empty space: ~\[]()
+Inspired by the link syntax - `[]()` - and the footnote syntax in the extension from MultiMarkdown - `[^]`.
 
-The syntax is inspired by a [conversation on the CommonMark site](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) and other implementations.
+The syntax is a square bracket followed by a period or dot: `.[]()`.
 
-When it came to deciding between find-and-replace (or replace all) versus inline - inline was selected.
+Just like the footnote indcates superscript, the abbreviation syntax was found to indicate shortening to more people than previously proposed options. Placing the dot inside the opening square bracket allows the abbreviation to exist next to other glyphs as opposed to forcing empty space. (A conversation in the [CommonMark .[Spec](Specification) board](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) was also referenced, and informative)
 
-Inline gives the author more fine-grain control over what becomes an ~[abbr](abbreviation) and what doesn't. This also reduces complexity for the implementation and solves the concern of only defining first use as recommended by [the ~[US](United States) Plain Language Guidelines](https://plainlanguage.gov/resources/articles/keep-it-jargon-free/) and similar guides.
+Given the traditional use of the `abbr` tag commonly combined with the `title` attribute, the link syntax makes sense as the `a` tag combines inner text with `href` and the `img` tag uses two attributes, `src` and `alt` to be valid and accessible.
 
-The consensus in the discussion seemed to fall on using the link syntax: \[](). Which is also used with an exclamation mark prefix for images: \!\[](). It is also similar to the syntax used for footnotes: [^]:. Essentially, in cases where two subparts are to be combined, one subpart is wrapped in square brackets while the second subpart is wrapped in ~[parens](parentheses) or otherwise separated from the square brackets.
+## Replace-all .[vs.](versus) inline
 
-Given the common usage of the ~[abbr](abbreviation) ~[HTML](Hypertext Markup Language) element, the link syntax makes sense. With that said, there didn't seem to be a consensus around the starting glyph. Common implementations seem to use the asterisk; however, this doesn't seem like the best choice, for reasons also brought up in the discussion thread. Beyond those, I will only add that the asterisk, used in this context, doesn't seem to be natural or communicative device - more one of convenience - consider the caret used for the footnote.
+We decided to go with inline, single instance over footer, replace-all.
 
-As such, I decided to go with the tilde - because math and what abbreviations and acronyms represent - namely, a symbol that needs to be unpacked to gain full understanding.
+Two main options exist for implementing this capability.
 
-In algebra, the tilde signifies approximation. In ~[CSS](Cascading Stylesheets) the "~=" selector signifies the hope that the string on the left will be a part of the string on the right, which is what abbreviations and acronyms tend to represent. So, it's "kind of" this thing - I can almost picture someone putting their hand out palm down rotating back-and-forth to say, "maybe" while kind of drawing a tilde in the air.
+The first is to place the abbreviation and definition at the bottom of the document and render all occurences of the abbreviation with the `abbr` element and title. The drawback here is possible impact to readers using .[AT](Assistive Technology) like screen readers; potentially being read the full abbreviation each time.
 
-I don't believe abbreviations are in any of the popular Markdown specifications and implemented only in Markdown parsers; therefore, this is my humble nod and submission to the problem.
+The second option is to have the abbreviation be inline with the surrounding text. The drawback here is the need to write more each time an author uses the abbreviation.
+
+This library looks at Markdown as being a way of writing potentially rich-text documents first, which can be transformed into .[HTML](Hypertext Markup Language) or something else. The recomendation from the [.[US](United States) Plain Language Guidelines](https://plainlanguage.gov/resources/articles/keep-it-jargon-free/) is to avoid abbreviations and acronyms in general and specifically to:
+
+- Try to keep them to a maximum of two a page.
+- Use them if spelling them out would annoy your readers.
+- If you must use an abbreviation or acronym, spell it out the first time you use it. For example: .[CBT](Computer-based training).
+
+As a document editor and author, I tend to recommend defining "first use" as "first use per section," where "section" is further defined as beginning with a header; so, if writing a 20 page document and an abbreviation is defined on page one, it's poor .[UX](user experience) to require a reader on page 20 to turn back to page one to jog their memory of the abbreviation's definition. This also speaks to the definitions being at the end of the document, similar to a glossary.

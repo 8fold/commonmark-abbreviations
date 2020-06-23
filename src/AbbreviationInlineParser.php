@@ -13,25 +13,23 @@ class AbbreviationInlineParser implements InlineParserInterface
 {
     public function getCharacters(): array
     {
-        return ["~"];
+        return ["."];
     }
 
     public function parse(InlineParserContext $inlineContext): bool
     {
         $cursor = $inlineContext->getCursor();
-        $previousChar = $cursor->peek(-1);
-        if ($previousChar !== null and $previousChar !== " ") {
-            return false;
-        }
 
-        $nextChar = $cursor->peek(1);
+        $nextChar = $cursor->peek();
         if ($nextChar !== null and $nextChar !== "[") {
             return false;
         }
 
         $previousCursor = $cursor->saveState();
-        $regex = '/^~\[.+?\]\(.+?\)/';
+
+        $regex = '/^\.\[.+?\]\(.+?\)/';
         $abbr = $cursor->match($regex);
+
         if (empty($abbr)) {
             $cursor->restoreState($previousCursor);
             return false;

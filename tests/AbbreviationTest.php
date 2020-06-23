@@ -17,6 +17,13 @@ class AbbreviationTest extends TestCase
     {
         $environment = Environment::createCommonMarkEnvironment();
         $environment->addExtension(new AbbreviationExtension());
+        $converter = new CommonMarkConverter([], $environment);
+
+        $path = Shoop::string(__DIR__)->plus("/short-doc.md");
+        $markdown = file_get_contents($path);
+        $expected = '<p><abbr title="United States Web Design System">USWDS</abbr></p>'."\n";
+        $actual = $converter->convertToHtml($markdown);
+        $this->assertEquals($expected, $actual);
 
         $path = Shoop::string(__DIR__)->divide("/")
             ->dropLast()->plus("readme.html")->join("/")->start("/");
@@ -25,9 +32,8 @@ class AbbreviationTest extends TestCase
         $path = Shoop::string(__DIR__)->divide("/")
             ->dropLast()->plus("README.md")->join("/")->start("/");
         $markdown = file_get_contents($path);
-        $converter = new CommonMarkConverter([], $environment);
-        $actual = $converter->convertToHtml($markdown);
 
+        $actual = $converter->convertToHtml($markdown);
         $this->assertEquals($expected, $actual);
     }
 }
