@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 use League\CommonMark\Environment;
 use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 
 use Eightfold\Shoop\Shoop;
 
@@ -17,11 +18,14 @@ class AbbreviationTest extends TestCase
     {
         $environment = Environment::createCommonMarkEnvironment();
         $environment->addExtension(new AbbreviationExtension());
-        $converter = new CommonMarkConverter([], $environment);
+        $environment->addExtension(new ExternalLinkExtension());
+        $converter = new CommonMarkConverter([
+            "external_link" => ["open_in_new_window" => true]
+        ], $environment);
 
         $path = Shoop::string(__DIR__)->plus("/short-doc.md");
         $markdown = file_get_contents($path);
-        $expected = '<p><abbr title="United States Web Design System">USWDS</abbr></p>'."\n";
+        $expected = '<p><abbr title="United States Web Design System">USWDS</abbr></p>'."\n".'<p><a rel="noopener noreferrer" target="_blank" href="https://8fold.pro">External link check</a></p>'."\n";
         $actual = $converter->convertToHtml($markdown);
         $this->assertEquals($expected, $actual);
 
