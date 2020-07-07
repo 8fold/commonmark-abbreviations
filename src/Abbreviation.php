@@ -4,8 +4,6 @@ namespace Eightfold\CommonMarkAbbreviations;
 
 use League\CommonMark\Inline\Element\AbstractInline;
 
-use Eightfold\Markup\UIKit;
-
 class Abbreviation extends AbstractInline
 {
     private $abbr = "";
@@ -24,6 +22,6 @@ class Abbreviation extends AbstractInline
 
     public function element()
     {
-        return UIKit::abbr($this->abbr)->attr("title ". $this->title)->unfold();
+        return '<abbr title="'. $this->title .'">'. $this->abbr .'</abbr>';
     }
 }

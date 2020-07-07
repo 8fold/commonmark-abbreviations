@@ -12,8 +12,7 @@
   "require": {
     "php": "^7.2",
     "league/commonmark": "~1.5",
-    "8fold/php-shoop": "~0.5",
-    "8fold/php-markup": "~0.1"
+    "8fold/php-shoop": "~0.5"
   },
   "require-dev": {
     "phpunit/phpunit": "~9.1"
