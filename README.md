@@ -2,7 +2,25 @@
 
 This library is an extension for the [CommonMark parser](https://github.com/thephpleague/commonmark) from the PHP League adding abbreviation syntax and rendering to Markdown.
 
-This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.
+> Warning: This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.
+
+## Installation
+
+```bash
+composer require 8fold/commonmark-abbreviations
+```
+
+## Usage
+
+```markdown
+[.8fold](Eigtfold)
+```
+
+Becomes:
+
+```html
+<abbr title="Eightfold">8fold</abbr>
+```
 
 ## The syntax
 

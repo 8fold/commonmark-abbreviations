@@ -1,6 +1,17 @@
 <h1>8fold Abbreviations for CommonMark</h1>
 <p>This library is an extension for the <a rel="noopener noreferrer" target="_blank" href="https://github.com/thephpleague/commonmark">CommonMark parser</a> from the PHP League adding abbreviation syntax and rendering to Markdown.</p>
-<p>This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.</p>
+<blockquote>
+<p>Warning: This text is written using that syntax enabling extension testing; therefore, it will most likely not render as intended without a rendering extension using this syntax.</p>
+</blockquote>
+<h2>Installation</h2>
+<pre><code class="language-bash">composer require 8fold/commonmark-abbreviations
+</code></pre>
+<h2>Usage</h2>
+<pre><code class="language-markdown">[.8fold](Eigtfold)
+</code></pre>
+<p>Becomes:</p>
+<pre><code class="language-html">&lt;abbr title=&quot;Eightfold&quot;&gt;8fold&lt;/abbr&gt;
+</code></pre>
 <h2>The syntax</h2>
 <p>Inspired by the link syntax - <code>[]()</code> - and the footnote syntax in the extension from MultiMarkdown - <code>[^]</code>.</p>
 <p>The syntax is a square bracket followed by a period or dot: <code>[.]()</code>.</p>
