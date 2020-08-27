@@ -33,9 +33,9 @@ class AbbreviationInlineParser implements InlineParserInterface
             $cursor->restoreState($previousCursor);
             return false;
         }
-
-        list($abbr, $title) = Shoop::string($abbr)->dropFirst(2)->dropLast()
-            ->divide("](", false, 2);
+        $abbr = substr($abbr, 2);
+        $abbr = substr($abbr, 0, -1);
+        list($abbr, $title) = explode("](", $abbr, 2);
         $elem = new Abbreviation($abbr, $title);
 
         $inlineContext->getContainer()->appendChild($elem);
