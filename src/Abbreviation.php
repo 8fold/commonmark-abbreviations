@@ -3,6 +3,7 @@
 namespace Eightfold\CommonMarkAbbreviations;
 
 use League\CommonMark\Inline\Element\AbstractInline;
+use League\CommonMark\HtmlElement;
 
 class Abbreviation extends AbstractInline
 {
@@ -22,6 +23,10 @@ class Abbreviation extends AbstractInline
 
     public function element()
     {
-        return '<abbr title="'. $this->title .'">'. $this->abbr .'</abbr>';
+        $attributes = $this->getData('attributes', []);
+
+        $attributes['title'] = $this->title;
+
+        return new HtmlElement('abbr', $attributes, $this->abbr);
     }
 }
