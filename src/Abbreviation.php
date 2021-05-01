@@ -2,19 +2,11 @@
 
 namespace Eightfold\CommonMarkAbbreviations;
 
-use League\CommonMark\Inline\Element\AbstractInline;
+use League\CommonMark\Inline\Element\AbstractStringContainer;
 use League\CommonMark\HtmlElement;
 
-class Abbreviation extends AbstractInline
+class Abbreviation extends AbstractStringContainer
 {
-    private $abbr = "";
-    private $title = "";
-
-    public function __construct(string $abbr, string $title)
-    {
-        $this->abbr = $abbr;
-        $this->title = $title;
-    }
 
     public function isContainer(): bool
     {
@@ -25,8 +17,6 @@ class Abbreviation extends AbstractInline
     {
         $attributes = $this->getData('attributes', []);
 
-        $attributes['title'] = $this->title;
-
-        return new HtmlElement('abbr', $attributes, $this->abbr);
+        return new HtmlElement('abbr', $attributes, $this->content);
     }
 }
