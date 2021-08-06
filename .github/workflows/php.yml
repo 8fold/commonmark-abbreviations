@@ -1,5 +1,4 @@
 name: PHP Composer
-
 on:
   push:
     branches:
@@ -14,13 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup PHP Action
+      uses: shivammathur/setup-php@2.9.0
+      with:
+        php-version: '7.4'
 
     - name: Validate composer.json and composer.lock
       run: composer validate
 
-    # - name: Install dependencies
-      # run: composer install --prefer-dist --no-progress --no-suggest
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
 
-    # - name: Run test suite
-      # run: vendor/bin/phpunit
+    - name: Run test suite
+      run: vendor/bin/phpunit
