@@ -19,12 +19,6 @@ class AbbreviationInlineParser implements InlineParserInterface
 
     public function parse(InlineParserContext $inlineContext): bool
     {
-        $cursor = $inlineContext->getCursor();
-        $previousChar = $cursor->peek(-1);
-        if ($previousChar !== null and $previousChar !== ' ') {
-            return false;
-        }
-
         $base = $inlineContext->getMatches();
 
         $abbr = $base[0];
@@ -37,7 +31,7 @@ class AbbreviationInlineParser implements InlineParserInterface
 
         }
 
-        $cursor->advanceBy(strlen($abbr));
+        $inlineContext->getCursor()->advanceBy(strlen($abbr));
 
         $abbr = substr($abbr, 2);
         $abbr = substr($abbr, 0, -1);
