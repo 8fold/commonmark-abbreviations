@@ -52,16 +52,5 @@ class AbbreviationAbstractStringContainerTest extends TestCase
         $actual = $converter->convertToHtml($markdown)->getContent();
 
         $this->assertEquals($expected, $actual);
-
-        $path = Shoop::this(__DIR__)->divide("/")
-            ->dropLast()->append(["readme.html"])->asString("/");
-        $expected = \file_get_contents($path);
-
-        $path = Shoop::this(__DIR__)->divide("/")
-            ->dropLast()->append(["README.md"])->asString("/");
-        $markdown = \file_get_contents($path);
-
-        $actual = $converter->convertToHtml($markdown);
-        $this->assertEquals($expected, $actual);
     }
 }

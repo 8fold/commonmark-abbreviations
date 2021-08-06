@@ -8,6 +8,7 @@ use League\CommonMark\Environment\Environment;
 use League\CommonMark\MarkdownConverter;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Event\DocumentParsedEvent;
+use League\CommonMark\Extension\Attributes\AttributesExtension;
 use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 
 use Eightfold\Shoop\Shoop;
@@ -17,15 +18,19 @@ use Eightfold\CommonMarkAbbreviations\AbbreviationExtension;
 
 class AbbreviationAttributesTest extends TestCase
 {
+    /**
+     * @group attributes
+     */
     public function testParser()
     {
         $config = [
             "external_link" => ["open_in_new_window" => true]
         ];
 
-        $environment = (new Environment($config))
+        $environment = (new Environment())
             ->addExtension(new CommonMarkCoreExtension())
             ->addExtension(new AbbreviationExtension())
+            ->addExtension(new AttributesExtension())
             ->addExtension(new ExternalLinkExtension())
             ->addEventListener(DocumentParsedEvent::class, function (
                 DocumentParsedEvent $event
@@ -43,8 +48,7 @@ class AbbreviationAttributesTest extends TestCase
 
                     // Add a test attribute. It's also possible to alter the
                     // existing attributes here.
-                    $attributes = $node->data->get("attributes");
-                    $attributes['data-event-attribute'] = 'hello';
+                    $node->data->set("attributes.data-event-attribute", "hello");
                 }
             });
 
@@ -58,17 +62,6 @@ class AbbreviationAttributesTest extends TestCase
 
         $actual = $converter->convertToHtml($markdown)->getContent();
 
-        $this->assertEquals($expected, $actual);
-
-        $path = Shoop::this(__DIR__)->divide("/")
-            ->dropLast()->append(["readme.html"])->asString("/");
-        $expected = file_get_contents($path);
-
-        $path = Shoop::this(__DIR__)->divide("/")
-            ->dropLast()->append(["README.md"])->asString("/");
-        $markdown = file_get_contents($path);
-
-        $actual = $converter->convertToHtml($markdown);
         $this->assertEquals($expected, $actual);
     }
 }

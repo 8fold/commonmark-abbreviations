@@ -12,7 +12,9 @@ class AbbreviationInlineParser implements InlineParserInterface
 {
     public function getMatchDefinition(): InlineParserMatch
     {
-        return InlineParserMatch::regex('\[\..+?\]\(.+?\)');
+        // Would limiting the character set for attributes make this safer?
+        // Would someone want or need characters beyond alnum, _, -, =, and "?
+        return InlineParserMatch::regex('\[\..+?\]\(.+?\)(\{.+?\})?');
     }
 
     public function parse(InlineParserContext $inlineContext): bool
@@ -23,9 +25,18 @@ class AbbreviationInlineParser implements InlineParserInterface
             return false;
         }
 
-        $cursor->advanceBy($inlineContext->getFullMatchLength());
+        // $cursor->advanceBy($inlineContext->getFullMatchLength());
 
-        $abbr = $inlineContext->getFullMatch();
+        $base = $inlineContext->getMatches();
+
+        $abbr = $base[0];
+
+        if (count($base) > 1) {
+            $attributes = $base[1];
+            $abbr = str_replace($attributes, "", $abbr);
+
+        }
+
         $abbr = substr($abbr, 2);
         $abbr = substr($abbr, 0, -1);
 
