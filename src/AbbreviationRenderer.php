@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Eightfold\CommonMarkAbbreviations;
 
-use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\NodeRendererInterface;
+
+use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
 
 use Eightfold\CommonMarkAbbreviations\Abbreviation;

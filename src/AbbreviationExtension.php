@@ -1,8 +1,7 @@
 <?php
+declare(strict_types=1);
 
 namespace Eightfold\CommonMarkAbbreviations;
-
-use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 
 use League\CommonMark\Extension\ExtensionInterface;
 use League\CommonMark\Environment\EnvironmentBuilderInterface;
