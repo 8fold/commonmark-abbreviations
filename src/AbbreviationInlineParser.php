@@ -25,17 +25,19 @@ class AbbreviationInlineParser implements InlineParserInterface
             return false;
         }
 
-        // $cursor->advanceBy($inlineContext->getFullMatchLength());
-
         $base = $inlineContext->getMatches();
 
         $abbr = $base[0];
 
+        // account for attributes extension
         if (count($base) > 1) {
             $attributes = $base[1];
+
             $abbr = str_replace($attributes, "", $abbr);
 
         }
+
+        $cursor->advanceBy(strlen($abbr));
 
         $abbr = substr($abbr, 2);
         $abbr = substr($abbr, 0, -1);

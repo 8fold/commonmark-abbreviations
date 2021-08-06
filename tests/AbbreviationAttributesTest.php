@@ -27,7 +27,7 @@ class AbbreviationAttributesTest extends TestCase
             "external_link" => ["open_in_new_window" => true]
         ];
 
-        $environment = (new Environment())
+        $environment = (new Environment($config))
             ->addExtension(new CommonMarkCoreExtension())
             ->addExtension(new AbbreviationExtension())
             ->addExtension(new AttributesExtension())
@@ -58,7 +58,7 @@ class AbbreviationAttributesTest extends TestCase
 
         $markdown = file_get_contents($path);
 
-        $expected = '<p><abbr title="United States Web Design System" data-inline-attribute="hello" data-event-attribute="hello">USWDS</abbr></p>'."\n".'<p><a rel="noopener noreferrer" target="_blank" href="https://8fold.pro">External link check</a></p>'."\n";
+        $expected = '<p><abbr title="United States Web Design System" data-event-attribute="hello" data-inline-attribute="hello">USWDS</abbr></p>'."\n".'<p><a rel="noopener noreferrer" target="_blank" href="https://8fold.pro">External link check</a></p>'."\n";
 
         $actual = $converter->convertToHtml($markdown)->getContent();
 
