@@ -15,9 +15,6 @@ class Abbreviation extends AbstractStringContainer
 
     public function element()
     {
-        // die(var_dump());
-        // $attributes = $this->getData('attributes', []);
-
         return new HtmlElement('abbr', $this->data->get("attributes"), $this->getLiteral());
     }
 }

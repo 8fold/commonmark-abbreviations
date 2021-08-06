@@ -4,8 +4,6 @@ namespace Eightfold\CommonMarkAbbreviations\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-// use League\CommonMark\Environment;
-// use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\MarkdownConverter;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
@@ -55,15 +53,15 @@ class AbbreviationAbstractStringContainerTest extends TestCase
 
         $this->assertEquals($expected, $actual);
 
-        // $path = Shoop::this(__DIR__)->divide("/")
-        //     ->dropLast()->append(["readme.html"])->asString("/");
-        // $expected = \file_get_contents($path);
+        $path = Shoop::this(__DIR__)->divide("/")
+            ->dropLast()->append(["readme.html"])->asString("/");
+        $expected = \file_get_contents($path);
 
-        // $path = Shoop::this(__DIR__)->divide("/")
-        //     ->dropLast()->append(["README.md"])->asString("/");
-        // $markdown = \file_get_contents($path);
+        $path = Shoop::this(__DIR__)->divide("/")
+            ->dropLast()->append(["README.md"])->asString("/");
+        $markdown = \file_get_contents($path);
 
-        // $actual = $converter->convertToHtml($markdown);
-        // $this->assertEquals($expected, $actual);
+        $actual = $converter->convertToHtml($markdown);
+        $this->assertEquals($expected, $actual);
     }
 }
