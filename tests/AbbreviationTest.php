@@ -17,6 +17,9 @@ use Eightfold\CommonMarkAbbreviations\AbbreviationExtension;
 
 class AbbreviationTest extends TestCase
 {
+    /**
+     * @group readme
+     */
     public function testParser()
     {
         $config = [
@@ -48,7 +51,7 @@ class AbbreviationTest extends TestCase
             ->dropLast()->append(["README.md"])->asString("/");
         $markdown = file_get_contents($path);
 
-        $actual = $converter->convertToHtml($markdown);
+        $actual = $converter->convertToHtml($markdown)->getContent();
         $this->assertEquals($expected, $actual);
     }
 }
