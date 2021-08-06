@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4b53543197db09c88c51c2203a18388",
+    "content-hash": "b514cf0e3ba16fe75f7a3816f126fb2d",
     "packages": [
         {
             "name": "dflydev/dot-access-data",
@@ -557,114 +557,6 @@
     ],
     "packages-dev": [
         {
-            "name": "8fold/php-foldable",
-            "version": "1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/8fold/php-foldable.git",
-                "reference": "fddb60b085fb1ca77e0d57af21f53f61796a49f3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/8fold/php-foldable/zipball/fddb60b085fb1ca77e0d57af21f53f61796a49f3",
-                "reference": "fddb60b085fb1ca77e0d57af21f53f61796a49f3",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7|^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~9.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Eightfold\\Foldable\\": "./src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Bruce",
-                    "email": "josh@8fold.pro"
-                }
-            ],
-            "description": "Foundation for developing Fluent Interfaces and the Pipeline Pattern",
-            "support": {
-                "issues": "https://github.com/8fold/php-foldable/issues",
-                "source": "https://github.com/8fold/php-foldable/tree/1.3.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/8fold",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/joshbruce",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-01-03T00:12:12+00:00"
-        },
-        {
-            "name": "8fold/php-shoop",
-            "version": "0.10.19",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/8fold/php-shoop.git",
-                "reference": "54b9f4800f5acb6628fc6fda427c759a374b5c51"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/8fold/php-shoop/zipball/54b9f4800f5acb6628fc6fda427c759a374b5c51",
-                "reference": "54b9f4800f5acb6628fc6fda427c759a374b5c51",
-                "shasum": ""
-            },
-            "require": {
-                "8fold/php-foldable": "~1.3.1",
-                "nikic/iter": "^2.0",
-                "php": "~7.4|^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~9.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Eightfold\\Shoop\\": "./src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Bruce",
-                    "email": "josh@8fold.pro"
-                }
-            ],
-            "description": "A wrapper to create a more ubiquitous API for interacting with primitive data types.",
-            "support": {
-                "issues": "https://github.com/8fold/php-shoop/issues",
-                "source": "https://github.com/8fold/php-shoop/tree/0.10.19"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/8fold",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/joshbruce",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-07-14T02:02:40+00:00"
-        },
-        {
             "name": "doctrine/instantiator",
             "version": "1.4.0",
             "source": {
@@ -790,56 +682,6 @@
                 }
             ],
             "time": "2020-11-13T09:40:50+00:00"
-        },
-        {
-            "name": "nikic/iter",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nikic/iter.git",
-                "reference": "d1323929952ddcb0b06439991f93bde3816a39e9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nikic/iter/zipball/d1323929952ddcb0b06439991f93bde3816a39e9",
-                "reference": "d1323929952ddcb0b06439991f93bde3816a39e9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/iter.func.php",
-                    "src/iter.php",
-                    "src/iter.rewindable.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Nikita Popov",
-                    "email": "nikic@php.net"
-                }
-            ],
-            "description": "Iteration primitives using generators",
-            "keywords": [
-                "functional",
-                "generator",
-                "iterator"
-            ],
-            "support": {
-                "issues": "https://github.com/nikic/iter/issues",
-                "source": "https://github.com/nikic/iter/tree/v2.2.0"
-            },
-            "time": "2021-08-02T15:04:32+00:00"
         },
         {
             "name": "nikic/php-parser",

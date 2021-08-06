@@ -15,8 +15,6 @@ use League\CommonMark\Extension\Attributes\AttributesExtension;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\TableOfContents\TableOfContentsExtension;
 
-use Eightfold\Shoop\Shoop;
-
 use Eightfold\CommonMarkAbbreviations\Abbreviation;
 use Eightfold\CommonMarkAbbreviations\AbbreviationExtension;
 
@@ -43,12 +41,9 @@ class AbbreviationTest extends TestCase
      */
     public function read_me()
     {
-        $projectBasePath = Shoop::this(__DIR__)->divide("/")
-            ->dropLast()->efToString("/");
+        $expected = static::fileContents("readme.html", static::projectBasePath());
 
-        $expected = static::fileContents("readme.html", $projectBasePath);
-
-        $markdown = static::fileContents("README.md", $projectBasePath);
+        $markdown = static::fileContents("README.md", static::projectBasePath());
 
         $actual = static::converter()->convertToHtml($markdown)->getContent();
 
@@ -141,5 +136,13 @@ class AbbreviationTest extends TestCase
             $basePath = __DIR__;
         }
         return file_get_contents($basePath ."/". $fileName);
+    }
+
+    static private function projectBasePath()
+    {
+        $dir = __DIR__;
+        $parts = explode("/", $dir);
+        array_pop($parts);
+        return implode("/", $parts);
     }
 }
