@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Eightfold\CommonMarkAbbreviations;
 
-use League\CommonMark\Inline\Element\AbstractStringContainer;
-use League\CommonMark\HtmlElement;
+use League\CommonMark\Node\Inline\AbstractStringContainer;
+
+use League\CommonMark\Util\HtmlElement;
 
 class Abbreviation extends AbstractStringContainer
 {
@@ -13,10 +15,8 @@ class Abbreviation extends AbstractStringContainer
         return true;
     }
 
-    public function element()
+    public function element(): HtmlElement
     {
-        $attributes = $this->getData('attributes', []);
-
-        return new HtmlElement('abbr', $attributes, $this->content);
+        return new HtmlElement('abbr', $this->data->get("attributes"), $this->getLiteral());
     }
 }

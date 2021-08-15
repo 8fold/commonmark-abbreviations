@@ -28,7 +28,7 @@ Inspired by the link syntax - `[]()` - and the footnote syntax in the extension 
 
 The syntax is a square bracket followed by a period or dot: `[.]()`.
 
-Just like the footnote indcates superscript, the abbreviation syntax was found to indicate shortening to more people than previously proposed options. Placing the dot inside the opening square bracket allows the abbreviation to exist next to other glyphs as opposed to forcing empty space. (A conversation in the [CommonMark [.Spec](Specification) board](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) was also referenced, and informative)
+Just like the footnote indicates superscript, the abbreviation syntax was found to indicate shortening to more people than previously proposed options. Placing the dot inside the opening square bracket allows the abbreviation to exist next to other glyphs as opposed to forcing empty space. (A conversation in the [CommonMark [.Spec](Specification) board](https://talk.commonmark.org/t/abbreviations-and-acronyms/890) was also referenced, and informative.)
 
 Given the traditional use of the `abbr` tag commonly combined with the `title` attribute, the link syntax makes sense as the `a` tag combines inner text with `href` and the `img` tag uses two attributes, `src` and `alt` to be valid and accessible.
 

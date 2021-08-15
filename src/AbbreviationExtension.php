@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace Eightfold\CommonMarkAbbreviations;
 
 use League\CommonMark\Extension\ExtensionInterface;
-use League\CommonMark\ConfigurableEnvironmentInterface;
+use League\CommonMark\Environment\EnvironmentBuilderInterface;
 
 use Eightfold\CommonMarkAbbreviations\Abbreviation;
 use Eightfold\CommonMarkAbbreviations\AbbreviationRenderer;
@@ -11,9 +12,10 @@ use Eightfold\CommonMarkAbbreviations\AbbreviationInlineParser;
 
 class AbbreviationExtension implements ExtensionInterface
 {
-    public function register(ConfigurableEnvironmentInterface $environment)
+    public function register(EnvironmentBuilderInterface $environment): void
     {
-        $environment->addInlineParser(new AbbreviationInlineParser(), 100);
-        $environment->addInlineRenderer(Abbreviation::class, new AbbreviationRenderer());
+        $environment
+            ->addInlineParser(new AbbreviationInlineParser(), 100)
+            ->addRenderer(Abbreviation::class, new AbbreviationRenderer());
     }
 }
