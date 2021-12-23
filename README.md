@@ -12,8 +12,26 @@ composer require 8fold/commonmark-abbreviations
 
 ## Usage
 
+
+
+## 2.1.0 to 3.0.0
+
 ```markdown
-[.8fold](Eigtfold)
+[.Eightfold](8fold)
+```
+
+Becomes:
+
+```html
+<abbr title="Eightfold">8fold</abbr>
+```
+
+You MAY also use the syntax prior to 2.1.0.
+
+## 2.0.0 and before
+
+```markdown
+[.8fold](Eightfold)
 ```
 
 Becomes:
@@ -38,11 +56,11 @@ We decided to go with inline, single instance over footer, replace-all.
 
 Two main options exist for implementing this capability.
 
-The first is to place the abbreviation and definition at the bottom of the document and render all occurences of the abbreviation with the `abbr` element and title. The drawback here is possible impact to readers using [.AT](Assistive Technology) like screen readers; potentially being read the full abbreviation each time.
+The first is to place the abbreviation and definition at the bottom of the document and render all occurrences of the abbreviation with the `abbr` element and title. The drawback here is possible impact to readers using [.AT](Assistive Technology) like screen readers; potentially being read the full abbreviation each time.
 
 The second option is to have the abbreviation be inline with the surrounding text. The drawback here is the need to write more each time an author uses the abbreviation.
 
-This library looks at Markdown as being a way of writing potentially rich-text documents first, which can be transformed into [.HTML](Hypertext Markup Language) or something else. The recomendation from the [[.US](United States) Plain Language Guidelines](https://plainlanguage.gov/resources/articles/keep-it-jargon-free/) is to avoid abbreviations and acronyms in general and specifically to:
+This library looks at Markdown as being a way of writing potentially rich-text documents first, which can be transformed into [.Hypertext Markup Language](HTML) or something else. The recommendation from the [[.US](United States) Plain Language Guidelines](https://plainlanguage.gov/resources/articles/keep-it-jargon-free/) is to avoid abbreviations and acronyms in general and specifically to:
 
 - Try to keep them to a maximum of two a page.
 - Use them if spelling them out would annoy your readers.
