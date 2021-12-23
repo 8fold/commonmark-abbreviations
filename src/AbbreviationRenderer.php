@@ -15,7 +15,9 @@ class AbbreviationRenderer implements NodeRendererInterface
     public function render(Node $node, ChildNodeRendererInterface $childRenderer)
     {
         if (! ($node instanceof Abbreviation)) {
-            throw new \InvalidArgumentException('Incompatible inline type: ' . get_class($node));
+            throw new \InvalidArgumentException(
+                'Incompatible inline type: ' . get_class($node)
+            );
         }
         return $node->element();
     }

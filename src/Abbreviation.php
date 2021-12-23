@@ -9,7 +9,6 @@ use League\CommonMark\Util\HtmlElement;
 
 class Abbreviation extends AbstractStringContainer
 {
-
     public function isContainer(): bool
     {
         return true;
@@ -17,6 +16,10 @@ class Abbreviation extends AbstractStringContainer
 
     public function element(): HtmlElement
     {
-        return new HtmlElement('abbr', $this->data->get("attributes"), $this->getLiteral());
+        return new HtmlElement(
+            'abbr',
+            $this->data->get("attributes"),
+            $this->getLiteral()
+        );
     }
 }
