@@ -48,6 +48,8 @@ class AbbreviationInlineParser implements InlineParserInterface
 
         }
 
+        // $title = htmlspecialchars($title);
+
         $elem = new Abbreviation($abbr, ['attributes' => ['title' => $title]]);
 
         $inlineContext->getContainer()->appendChild($elem);
