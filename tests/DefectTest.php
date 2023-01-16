@@ -24,12 +24,13 @@ class DefectTest extends TestCase
      * @test
      * @group defect
      */
-    public function deleting_first_letter_of_following_word()
+    public function apostrophes_are_bad()
     {
         // getting: <p>From what I understand, the <abbr title="Standards and Poorʼs 500 index">S&P 500</abbr>officially entered bear market status.</p>
         // or (if using prime not apostrophe) <p>From what I understand, the <abbr title="Standards and Poorʼs 500 index">S&P 500</abbr>fficially entered bear market status.</p>
         $expected = <<<html
             <p>From what I understand, the <abbr title="Standards and Poorʼs 500 index">S&P 500</abbr> officially entered bear market status.</p>
+
             html;
 
         $markdown = <<<md
