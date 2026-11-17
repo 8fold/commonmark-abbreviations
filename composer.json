@@ -1,23 +1,18 @@
 {
   "name": "8fold/commonmark-abbreviations",
   "description": "An extension of PHP League's CommonMark library to enable abbreviation usage.",
-  "license": "MIT",
   "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "Josh Bruce",
-      "email": "josh@8fold.pro"
+      "email": "josh@8fold.pro",
+      "homepage": "https://joshbruce.com",
+      "role": "Lead Developer"
     }
   ],
-  "require": {
-    "php": "^7.2|^8.0",
-    "league/commonmark": "^2.0.2"
-  },
-  "require-dev": {
-    "phpstan/phpstan": "^1.2.0",
-    "phpunit/phpunit": "^9.5",
-    "squizlabs/php_codesniffer": "^3.6"
-  },
   "autoload": {
     "psr-4": {
       "Eightfold\\CommonMarkAbbreviations\\": "./src/"
@@ -28,20 +23,65 @@
       "Eightfold\\CommonMarkAbbreviations\\Tests\\": "./tests/"
     }
   },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
+  "repositories": [],
+  "require": {
+    "php": "^8.0",
+    "league/commonmark": "^2.3"
   },
-  "config": {
-    "preferred-install": "dist"
+  "require-dev": {
+    "symfony/process": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+
+    "squizlabs/php_codesniffer": "^3.6 || ^4.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+
+    "phpstan/phpstan": "^2.0.0",
+    "phpstan/phpstan-strict-rules": "^2.1",
+    "spaze/phpstan-disallowed-calls": "^4.15",
+    "phpstan/extension-installer": "*",
+
+    "phpunit/phpunit": "^9.5.21 || ^10.5.9 || ^11.0.0 || ^12.0.0 || ^13.0.0"
   },
-  "prefer-stable": true,
   "scripts": {
     "prod": "@production",
-    "production": ["@style", "@stan", "@test"],
-    "style": "./vendor/bin/phpcs --standard=phpcs.xml -p ./src",
-    "stan": "./vendor/bin/phpstan analyze",
-    "test": "./vendor/bin/phpunit"
+    "production": [
+      "@autoload:prod",
+      "@check"
+    ],
+
+    "local": [
+      "@autoload:local",
+      "@check"
+    ],
+
+    "check": [
+      "@check:dependencies",
+      "@check:tabs",
+      "@check:style",
+      "@check:analysis",
+      "@check:test"
+    ],
+    "check:dependencies": "composer validate --no-check-publish",
+    "check:tabs": "php ./bin/check-tabs.php",
+    "check:style": "./vendor/bin/phpcs --standard=phpcs.xml",
+    "check:analysis": "./vendor/bin/phpstan analyze",
+    "check:test": "./vendor/bin/phpunit",
+    "check:test:ci": "./vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php tests/",
+
+    "autoload:prod": "composer dumpautoload --no-dev --classmap-authoritative",
+    "autoload:local": "composer dumpautoload -o"
+  },
+  "extra": {
+    "phpstan/extension-installer": {
+      "ignore": [
+        "spaze/phpstan-disallowed-calls"
+      ]
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    },
+    "sort-packages": true
   }
 }
