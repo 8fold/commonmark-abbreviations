@@ -74,7 +74,8 @@ class AbbreviationTest extends TestCase
 
         $environment = self::basicEnvironment()
             ->addExtension(new HeadingPermalinkExtension())
-            ->addExtension(new TableOfContentsExtension());
+            ->addExtension(new TableOfContentsExtension())
+            ->addExtension(new AbbreviationExtension());
 
         $actual = self::converter($environment)
             ->convertToHtml($markdown)->getContent();
@@ -100,8 +101,8 @@ class AbbreviationTest extends TestCase
 
         return (new Environment($config))
             ->addExtension(new CommonMarkCoreExtension())
-            ->addExtension(new AbbreviationExtension())
-            ->addExtension(new ExternalLinkExtension());
+            ->addExtension(new ExternalLinkExtension())
+            ->addExtension(new AbbreviationExtension());
     }
 
     private static function fileContents(string $fileName, string $basePath = ""): string
