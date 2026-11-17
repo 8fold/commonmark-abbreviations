@@ -37,16 +37,7 @@ class AbbreviationInlineParser implements InlineParserInterface
         $abbr = substr($abbr, 2);
         $abbr = substr($abbr, 0, -1);
 
-        list($abbr, $title) = explode("](", $abbr, 2);
-        if (strlen($abbr) > strlen($title)) {
-            // flip
-            $t = $title;
-            $a = $abbr;
-
-            $abbr  = $t;
-            $title = $a;
-
-        }
+        list($title, $abbr) = explode("](", $abbr, 2);
 
         $elem = new Abbreviation($abbr, ['attributes' => ['title' => $title]]);
 

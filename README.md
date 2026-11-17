@@ -26,7 +26,7 @@ Becomes:
 
 You MAY also use the syntax prior to 2.1.0.
 
-## 2.0.0 and before
+## 2.0.0 and prior
 
 ```markdown
 [.8fold](Eightfold)

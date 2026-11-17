@@ -33,7 +33,7 @@ class AbbreviationTest extends TestCase
 
     public function test_attributes_extension_integration(): void
     {
-        $markdown = '[.USWDS](United States Web Design System){data-inline-attribute="hello"}';
+        $markdown = '[.United States Web Design System](USWDS){data-inline-attribute="hello"}';
 
         $expected = '<p><abbr title="United States Web Design System" '
             . 'data-event-attribute="hello" data-inline-attribute="hello">USWDS</abbr></p>' . "\n";
