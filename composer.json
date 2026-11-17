@@ -67,6 +67,8 @@
     "check:test": "./vendor/bin/phpunit",
     "check:test:ci": "./vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php tests/",
 
+    "build:readme": "php ./bin/build-readme.php",
+
     "autoload:prod": "composer dumpautoload --no-dev --classmap-authoritative",
     "autoload:local": "composer dumpautoload -o"
   },
