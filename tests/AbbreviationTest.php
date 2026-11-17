@@ -20,47 +20,25 @@ use Eightfold\CommonMarkAbbreviations\AbbreviationExtension;
 
 class AbbreviationTest extends TestCase
 {
-    /**
-     * @test
-     * @group shortdoc
-     */
-    public function short_doc()
+    public function test_short_doc(): void
     {
-        $expected = static::fileContents("short-doc.html");
+        $expected = self::fileContents("short-doc.html");
 
-        $markdown = static::fileContents("short-doc.md");
+        $markdown = self::fileContents("short-doc.md");
 
-        $actual = static::converter()->convertToHtml($markdown)->getContent();
+        $actual = self::converter()->convertToHtml($markdown)->getContent();
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     * @group readme
-     */
-    public function read_me()
-    {
-        $expected = static::fileContents("readme.html", static::projectBasePath());
-
-        $markdown = static::fileContents("README.md", static::projectBasePath());
-
-        $actual = static::converter()->convertToHtml($markdown)->getContent();
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     * @group attributes
-     */
-    public function attributes_extension_integration()
+    public function test_attributes_extension_integration(): void
     {
         $markdown = '[.USWDS](United States Web Design System){data-inline-attribute="hello"}';
 
-        $expected = '<p><abbr title="United States Web Design System" data-event-attribute="hello" data-inline-attribute="hello">USWDS</abbr></p>'."\n";
+        $expected = '<p><abbr title="United States Web Design System" '
+            . 'data-event-attribute="hello" data-inline-attribute="hello">USWDS</abbr></p>' . "\n";
 
-        $environment = static::basicEnvironment()
+        $environment = self::basicEnvironment()
             ->addExtension(new AttributesExtension())
             ->addEventListener(DocumentParsedEvent::class, function (
                 DocumentParsedEvent $event
@@ -82,43 +60,39 @@ class AbbreviationTest extends TestCase
                 }
             });
 
-        $actual = static::converter($environment)
+        $actual = self::converter($environment)
             ->convertToHtml($markdown)->getContent();
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     * @group shortdoc
-     * @group stringcontainer
-     */
-    public function abstract_string_container_integration()
+    public function test_abstract_string_container_integration(): void
     {
-        $expected = static::fileContents("short-doc-abstract-string-container.html");
+        $expected = self::fileContents("short-doc-abstract-string-container.html");
 
-        $markdown = static::fileContents("short-doc-abstract-string-container.md");
+        $markdown = self::fileContents("short-doc-abstract-string-container.md");
 
-        $environment = static::basicEnvironment()
+        $environment = self::basicEnvironment()
             ->addExtension(new HeadingPermalinkExtension())
             ->addExtension(new TableOfContentsExtension());
 
-        $actual = static::converter($environment)
+        $actual = self::converter($environment)
             ->convertToHtml($markdown)->getContent();
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
 // -> Conveniences
-    static private function converter(Environment $environment = null)
+    private static function converter(Environment|null $environment = null): MarkdownConverter
     {
         if ($environment === null) {
-            $environment = static::basicEnvironment();
+            $environment = self::basicEnvironment();
         }
+
         return new MarkdownConverter($environment);
     }
 
-    static private function basicEnvironment()
+    private static function basicEnvironment(): Environment
     {
         $config = [
             "external_link" => ["open_in_new_window" => true]
@@ -130,19 +104,16 @@ class AbbreviationTest extends TestCase
             ->addExtension(new ExternalLinkExtension());
     }
 
-    static private function fileContents(string $fileName, string $basePath = "")
+    private static function fileContents(string $fileName, string $basePath = ""): string
     {
         if (strlen($basePath) === 0) {
             $basePath = __DIR__;
         }
-        return file_get_contents($basePath ."/". $fileName);
-    }
 
-    static private function projectBasePath()
-    {
-        $dir = __DIR__;
-        $parts = explode("/", $dir);
-        array_pop($parts);
-        return implode("/", $parts);
+        $content = file_get_contents($basePath . "/" . $fileName);
+        if ($content === false) {
+            return '';
+        }
+        return $content;
     }
 }

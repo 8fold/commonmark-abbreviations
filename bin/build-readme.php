@@ -28,6 +28,10 @@ if (! file_exists($inputFile)) {
 }
 
 $markdown = file_get_contents($inputFile);
+if ($markdown === false) {
+    fwrite(STDERR, "Error: Source file not read: {$outputFile}\n");
+    exit(1);
+}
 
 // Configure CommonMark with GitHub Flavored Markdown + your extension
 $config = [
