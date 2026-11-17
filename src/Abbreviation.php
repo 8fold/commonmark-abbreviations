@@ -16,9 +16,20 @@ class Abbreviation extends AbstractStringContainer
 
     public function element(): HtmlElement
     {
+        $attributes = [];
+        $attrs = $this->data->get("attributes");
+        if (is_array($attrs)) {
+            foreach ($attrs as $key => $value) {
+                if (is_string($key) and is_string($value)) {
+                    $attributes[$key] = $value;
+
+                }
+            }
+        }
+
         return new HtmlElement(
             'abbr',
-            $this->data->get("attributes"),
+            $attributes,
             $this->getLiteral()
         );
     }

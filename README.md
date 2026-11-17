@@ -48,13 +48,13 @@ Just like the footnote indicates superscript, the abbreviation syntax was found 
 
 Given the traditional use of the `abbr` tag commonly combined with the `title` attribute, the link syntax makes sense as the `a` tag combines inner text with `href` and the `img` tag uses two attributes, `src` and `alt` to be valid and accessible.
 
-## Replace-all [.vs.](versus) inline
+## Replace-all [.versus](vs.) inline
 
 We decided to go with inline, single instance over footer, replace-all.
 
 Two main options exist for implementing this capability.
 
-The first is to place the abbreviation and definition at the bottom of the document and render all occurrences of the abbreviation with the `abbr` element and title. The drawback here is possible impact to readers using [.AT](Assistive Technology) like screen readers; potentially being read the full abbreviation each time.
+The first is to place the abbreviation and definition at the bottom of the document and render all occurrences of the abbreviation with the `abbr` element and title. The drawback here is possible impact to readers using [.Assistive Technology](AT) like screen readers; potentially being read the full abbreviation each time.
 
 The second option is to have the abbreviation be inline with the surrounding text. The drawback here is the need to write more each time an author uses the abbreviation.
 
@@ -62,6 +62,15 @@ This library looks at Markdown as being a way of writing potentially rich-text d
 
 - Try to keep them to a maximum of two a page.
 - Use them if spelling them out would annoy your readers.
-- If you must use an abbreviation or acronym, spell it out the first time you use it. For example: [.CBT](Computer-based training).
+- If you must use an abbreviation or acronym, spell it out the first time you use it. For example: [.Computer-based training](CBT).
 
 As a document editor and author, I tend to recommend defining "first use" as "first use per section," where "section" is further defined as beginning with a header; so, if writing a 20 page document and an abbreviation is defined on page one, it's poor [.UX](user experience) to require a reader on page 20 to turn back to page one to jog their memory of the abbreviation's definition. This also speaks to the definitions being at the end of the document, similar to a glossary.
+
+## Other
+
+- [Code of Conduct](https://github.com/8fold/.github/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing](https://github.com/8fold/.github/blob/main/CONTRIBUTING.md)
+- [Governance](https://github.com/8fold/.github/blob/main/GOVERNANCE.md)
+- [Versioning](https://github.com/8fold/.github/blob/main/docs/versioning-base.md)
+- [Security](https://github.com/8fold/.github/blob/main/SECURITY.md)
+
